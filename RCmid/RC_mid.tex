@@ -76,7 +76,7 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[VP260 RC]{VP260 Recitation Class} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[VP260 RC]{Midterm Review} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author{VP260 TA Group} % Your name
 \institute[UM-SJTU JI] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
@@ -85,6 +85,14 @@
 \medskip
 }
 \date{\today} % Date, can be changed to a custom date
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
 
 \begin{document}
 
@@ -104,82 +112,49 @@
 \subsection{Vector Calculus} % Section title slide, unnumbered
 
 \begin{frame}{Stoke's formula}
-	\begin{beamerboxesrounded}{Foundamental theorem for gradients}
+	\begin{block}{Foundamental theorem for gradients}
 		\begin{equation}
 			\int_{\vb{a}}^{\vb{b}} (\grad f) \vdot \dd{\vb*{l}} = f(\vb{b}) - f(\vb{a})
 		\end{equation}
-	\end{beamerboxesrounded}
+	\end{block}
 	
-	\begin{beamerboxesrounded}{Divergence theorem}
+	\begin{block}{Divergence theorem}
 		\begin{equation}
 			\int_V (\div \vb{v}) \dd{\tau} = \oint_{\partial V} \vb{v} \vdot \dd{\vb*{A}}
 		\end{equation}
-	\end{beamerboxesrounded}
+	\end{block}
 
-	\begin{beamerboxesrounded}{Stoke's theorem}
+	\begin{block}{Stoke's theorem}
 		\begin{equation}
 			\int_S (\curl \vb{v}) \vdot \dd{\vb{A}} = \oint_{\partial S} \vb{v} \vdot \dd{\vb{l}}
 		\end{equation}
-	\end{beamerboxesrounded}
+	\end{block}
 \end{frame}
 
 \subsection{Electrostatics}
 
-\begin{frame}{Coulomb Force}	
-	\begin{beamerboxesrounded}{Coulomb Force}
+\begin{frame}{Electric Field}	
+	\begin{block}{Coulomb Force}
 		\begin{equation}
 			\vec{F} = \frac{1}{4\pi\epsilon_0} \frac{\abs{q_1 q_2}}{r^2} \vu{r}
 		\end{equation}	
-    \end{beamerboxesrounded}
+    \end{block}
 
-	\begin{itemize}
-		\item permittivity of vacuum: $\epsilon_0 = 8.85 \times 10^{-12} \  C^2/(N \cdot m^2)$;
-        \item The direction of $\vu{r}$ is decided by charges;
-        \item Superposition principle.
-	\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Electric Field}	
-	\begin{beamerboxesrounded}[shadow=true]{Electric Field}
+    \begin{block}{Electric Field}
         \begin{equation}
 			\vec{E} = \frac{\vec{F}}{q_0}
 		\end{equation}
-    \end{beamerboxesrounded}
-	
-	\begin{itemize}
-		\item Only valid when $q_0$ is a point charge.
-		\item Electric field is a vector field in space.
-		\item "real" physical entity
-        \item unit: $V/m$ or $N/C$
-        \item $\va{E}$ is tangential to the field line.
-		\item Field lines only intersect at point charges.
-		\item Density of field line represents the magnitude of $\va{E}$.
-	\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Electric Potential}
-    We can prove that $\oint_l \va{E} \vdot \dd{\va{s}} = 0$ and $\curl{\va{E}} = 0$.
-
+    \end{block}
+    
     \begin{block}{Electric potential}
         \begin{equation}
             V(\va{r}) = -\int_O^{\va{r}} \va{E} \vdot \dd{\va{l}}
         \end{equation}
-
-        \begin{itemize}
-            \item Here, point O is zero reference. We use infinity as reference point usually.
-            \item Unit: [V]olt
-        \end{itemize}	
     \end{block}
 
-    \begin{block}{Toolbox for calculating potential}
-        \begin{itemize}
-            \item $V(\va{r}) = -\int_O^{\va{r}} \va{E} \vdot \dd{\va{l}}$;
-            \item Add up contributions from small charges dq regarded as point charges;
-            \item Solve equation $- \laplacian{V} = \frac{\rho}{\epsilon_0}$ with boundary condition.
-        \end{itemize}
-    \end{block}
+	\begin{itemize}
+        \item Superposition principle.
+	\end{itemize}
 \end{frame}
 
 
@@ -207,7 +182,7 @@
 \begin{frame}{Potential energy}
     Move a test charge $q$ from point $\va{a}$ to $\va{b}$, the minimum work is,
     \begin{equation}
-        W = \int_{\vb{a}}^{\vb{b}} \va{F} \vdot \dd{\va{l}} = -q \int_{\vb{a}}^{\vb{b}} \va{E} \vdot \dd{\va{l}} = q \cdot (V(\va{a}) - V(\va{b}))
+        W = \int_{\vb{a}}^{\vb{b}} \va{F} \vdot \dd{\va{l}} = -q \int_{\vb{a}}^{\vb{b}} \va{E} \vdot \dd{\va{l}} = q \cdot (V(\va{b}) - V(\va{a}))
     \end{equation}
 
     \begin{block}{Potential energy}
@@ -217,7 +192,7 @@
     \end{block}
 
     \begin{itemize}
-        \item The minimum work for moving a test charge $q$ from point $\va{a}$ to $\va{b}$ is $U(\va{a}) - U(\va{b})$.
+        \item The minimum work for moving a test charge $q$ from point $\va{a}$ to $\va{b}$ is $U(\va{b}) - U(\va{a})$.
     \end{itemize}
 \end{frame}
 
@@ -256,33 +231,43 @@
 \end{frame}
 
 
-\begin{frame}{Poisson's Equation}
-    \begin{block}{Recall: (Gauss' Law)}
+\begin{frame}{Electric Field}
+    \begin{block}{Toolbox for calculating electric field}
+        \begin{itemize}
+            \item $\va{E} = \div{V}$;
+            \item Add up contributions from small charges dq regarded as point charges;
+            \item Use Gauss's law (symmetry).
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Electric Potential}
+    \begin{block}{Conservative field}
         \begin{equation}
-            \div{\va{E}} = \frac{\rho}{\epsilon_0}
-        \end{equation}  
-        \text{Since $\va{E} = -\grad{V}$, then we have:}
+            \oint_l \va{E} \vdot \dd{\va{s}} = 0
+        \end{equation}
         \begin{equation}
-            \div(-\grad{V}) = -\laplacian{V} = \frac{\rho}{\epsilon_0}
+            \curl{\va{E}} = 0
         \end{equation}
     \end{block}
 
-    \begin{block}{Poisson's Equation (PDE)}
-        \begin{equation}
-            - \laplacian{V} = \frac{\rho}{\epsilon_0}
-        \end{equation}
+    \begin{block}{Toolbox for calculating potential}
+        \begin{itemize}
+            \item $V(\va{r}) = -\int_O^{\va{r}} \va{E} \vdot \dd{\va{l}}$;
+            \item Add up contributions from small charges dq regarded as point charges;
+            \item Solve equation $- \laplacian{V} = \frac{\rho}{\epsilon_0}$ with boundary condition (method of image).
+        \end{itemize}
     \end{block}
 \end{frame}
 
 
 \begin{frame}{Method of Image}
-    Poisson's equation provides us an efficient and systematic way to solve the electric potential distribution in space.
-    However, it is not easy to solve a PDE. Here, we will briefly introduce:
-    \vspace{.5em}
-    
-    \begin{beamerboxesrounded}[shadow=true]{Method of Images}
-        Add mirror images \textbf{outside} the original domain, to satisfy the boundary conditions.
-    \end{beamerboxesrounded}
+    \begin{block}{Poisson's Equation (PDE)}
+        \begin{equation}
+            - \laplacian{V} = \frac{\rho}{\epsilon_0}
+        \end{equation}
+    \end{block}
+
     \begin{block}{Uniqueness theory}
         The electric potential inside a certain is \textbf{uniquely} determined, if:
         \begin{itemize}
@@ -290,6 +275,11 @@
             \item The electric potential distribution at the boundaries is known
         \end{itemize}
     \end{block}
+
+    \begin{block}{Method of Images}
+        Add mirror images \textbf{outside} the original domain, to satisfy the boundary conditions.
+    \end{block}
+    
 \end{frame}
 
 \begin{frame}{Summary for Electrostatics}
@@ -331,9 +321,17 @@
 \begin{frame}{Dielectrics}
     \begin{itemize}
         \item Relative permittivity: $ \epsilon_r $
-        \item Absolute permittivity: $ \epsilon = \epsilon_r \epsilon_0 $
+        \item Absolute permittivity: $ \epsilon = \epsilon_r \epsilon_0$
     \end{itemize}
     \vfill
+    \begin{block}{Gauss's law}
+        \begin{equation}
+            \oint_S \va{E} \vdot \dd{\va{A}} = \frac{Q_{encl}}{\epsilon_0}
+        \end{equation}
+        \begin{equation}
+            \oint_S \epsilon_r \va{E} \vdot \dd{\va{A}} = \frac{Q_{free-encl}}{\epsilon_0}
+        \end{equation}
+    \end{block}
     \begin{beamerboxesrounded}[shadow=true]{Formulas with dielectrics}
         \begin{equation}
             \left\{
@@ -464,6 +462,46 @@
 
 \subsection{\bf Electric Field \& Gauss' Law}
 
+\begin{frame}{\bf Hw2 P2}
+A point charge $q$ is placed at the point $\mathbf{r}=0$.
+(a) By direct calculation show that the divergence of the 
+electric field $\operatorname{div} \mathbf{E}(\mathbf{r})=0$ 
+for all $\mathbf{r} \neq 0 .$ What can you say (qualitatively) 
+about the divergence at $\mathbf{r}=0 ?$
+(b) What is the condition $\operatorname{div} \mathbf{E}(\mathbf{r})$ 
+should satisfy at $\mathbf{r}=0$ for Gauss's law to be valid? 
+\end{frame}
+
+\begin{frame}{\bf Hw2 P9}
+    \begin{columns}
+        \begin{column}{.7\linewidth}
+            Two spherical cavities, of radii $r_{a}$ and $r_{b}$, are hollowed out from the interior of a neutral conducting ball of radius $R$. At the center of each cavity a point charge is placed: $q_{a}$ and $q_{b},$ respectively.
+            (a) Find the surface densities of charge $\sigma_{a}, \sigma_{b}$ on the walls of the cavities as well as on the surface of the ball $\sigma_{R}$.
+            (b) What is the electric field outside of the conductor?
+            (c) What is the electric field within each cavity?
+            (d) What is the force on $q_{a}$ and $q_{b} ?$
+            (e) Which of these answers would change if a third charge $q_{c}$ were brought near the conductor?
+
+        \end{column}
+        \begin{column}{.3\linewidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.4]{images/ex2.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}{\bf Hw3 P3}
+    What is the electric potential at a distance $s$ from an infinitely long straight wire charged with uniform density $\lambda$ ? Comment on your choice of the reference point.
+\end{frame}
+
+\begin{frame}{\bf Hw3 P4}
+    A conical surface (an empty ice-cream cone) carries a uniform surface charge with density $\sigma$. The height of the cone is $h,$ as is the radius of the top. Find the electric potential difference between points $\mathbf{r}_{A}$ (the vertex) and $\mathbf{r}_{B}$ (the center of the top).
+\end{frame}
+
+
 \begin{frame}{\bf Exercise 1}
 There are two positive point charges $q_1$ and $q_2$ locating at 
 $r_1$ and $r_2$ respectively. Now add a negative point charge $q_3$ 
@@ -494,6 +532,15 @@ There is a metal ball ($R$, $Q$) in space. Calculate the force between the upper
 \end{frame}
 
 \subsection{\bf Electric Potential}
+
+\begin{frame}{\bf Hw3 P7}
+    Find the energy stored in a uniformly charged solid ball of radius $R$ and charge $q$. (This energy is also often called the "self-energy" of the charge distribution.) Do it in four different ways, using formulas we have derived in class:
+(a) Use $U_{\text {conf }}=\frac{1}{2} \int_{\Omega} \rho V d \tau$. \\
+(b) Use $U_{\text {conf }}=\frac{\varepsilon_{0}}{2} \int_{\text {all space }} E^{2} d \tau$. \\
+(c) Use $U_{\text {conf }}=\frac{\varepsilon_{0}}{2}\left(\int_{\Omega} E^{2} d \tau+\oint_{\Sigma} V \mathbf{E} \circ d \mathbf{A}\right)$ taking $\Sigma$ as a sphere of radius $a>R$ centered at the center of the ball. Comment on what happens as $a \rightarrow \infty$. \\
+(d) Find the amount of work needed to be done to assemble the ball by bringing infinitesimal charges from far away. 
+\end{frame}
+
 \begin{frame}{\bf Exercise 3}
     \begin{columns}
         \begin{column}{0.6\linewidth}
@@ -524,7 +571,7 @@ There is a metal ball ($R$, $Q$) in space. Calculate the force between the upper
 \subsection{\bf Method of Image}
 
 
-\begin{frame}{\bf Exercise 5 (Hw4 P5)}
+\begin{frame}{\bf Hw4 P5}
     
 (a) Calculate the electric potential in this region. 
 (b) What is the force on q? (c) How much work did it take to bring the charge q from inﬁnity? 
@@ -537,7 +584,8 @@ There is a metal ball ($R$, $Q$) in space. Calculate the force between the upper
 
 \end{frame}
 
-\begin{frame}{\bf Exercise 6 (RC 2)}
+
+\begin{frame}{\bf Exercise 5 (RC 2)}
     There exists a point charge $Q$ and a conducting shell in space. The distance between the center of shell 
     and the point charge is $a(a>R_0)$. Please find out the total amount of induced charge on the surface, in each case:
     \begin{itemize}
@@ -553,7 +601,15 @@ There is a metal ball ($R$, $Q$) in space. Calculate the force between the upper
 
 \subsection{\bf Capacitors}
 
-\begin{frame}{\bf Exercise 7}
+\begin{frame}{\bf Hw4 8}
+    Two square conducting plates with sides of length $L$ are separated by a distance $D$. A dielectric slab with relative permittivity $\varepsilon_{\mathrm{r}}$ and dimensions $L \times L \times D$ is inserted a distance $x$ into the space between the plates, as shown in the figure.
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.8]{images/HW4_8}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{\bf Exercise 6}
     Two metal boards are placed parallel to each other and 
     separated at a distance $D=2cm$. The surface charge density 
     on one board is $\sigma_{1}=3\mu C/m^2$ and $\sigma_{2}=6\mu C/m^2$ 
@@ -567,7 +623,7 @@ There is a metal ball ($R$, $Q$) in space. Calculate the force between the upper
 
 \end{frame}
 
-\begin{frame}{\bf Exercise 8}
+\begin{frame}{\bf Exercise 7}
 \begin{columns}
     \begin{column}{.7\linewidth}
         A parallel-plane capacitor is inserted into a beaker containing liquid dielectric with relative permittivity $\varepsilon_{r}$ and density $\rho$. 
@@ -587,7 +643,36 @@ There is a metal ball ($R$, $Q$) in space. Calculate the force between the upper
 %-------------------------------------------%
 \subsection{\bf Electric Current}
 
-\begin{frame}{\bf Exercise 9}
+\begin{frame}{\bf Hw5 P1}
+    \begin{columns}
+        \begin{column}{.7\linewidth}
+            Two concentric spherical metal shells with radii $r_{a}, r_{b},$ 
+            where $r_{a}<r_{b},$ are separated by a weakly conducting material 
+            with conductivity $\sigma$. \\
+            (a) If they are maintained at potential difference $V,$ what current flows from one to each other? \\
+            (b) What is the resistance between the shells? \\ 
+            (c) Notice that if $r_{b} \gg r_{a},$ the outer radius $r_{b}$ is irrelevant. Determine the current flowing between two metal spheres, each of radius $r_{a}$, immersed deep in the sea and held quite far apart, if the potential difference between them is $V$.
+        \end{column}
+        \begin{column}{.3\linewidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale=0.8]{images/HW5_1.png}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{\bf Hw5 P2}
+    Estimate the resistance between the wires.
+    \vspace{1em}
+    \begin{figure}
+        \centering 
+        \includegraphics[scale = 1]{images/HW5_2.png}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{\bf Exercise 8}
     There are two concentric metal spheres with radius $a$ 
     and $b$ respectively ($b>a$). There are materials with 
     conductivity $\sigma=KE$ where $K$ is a positive constant 
@@ -597,11 +682,12 @@ There is a metal ball ($R$, $Q$) in space. Calculate the force between the upper
     between two spheres.
 \end{frame}
 
+
 %---------------------------------------------%
 
 \subsection{\bf Magnetic Field}
 
-\begin{frame}{\bf Exercise 10}
+\begin{frame}{\bf Exercise 9}
     A simple pendulum consists of a string with length $L$ 
     and a ball carrying charge $+q$. The greatest swing angle is $\alpha$. 
     In order to make this pendulum oscillate normally, what kind of restrict 
@@ -613,7 +699,7 @@ There is a metal ball ($R$, $Q$) in space. Calculate the force between the upper
     \end{figure}
 \end{frame}
 
-\begin{frame}{\bf Exercise 11}
+\begin{frame}{\bf Exercise 10}
     There is a particle with mass m and charge $+q$ shot from point $a$ 
     with a initial velocity $v_0$ pointing straightly towards point $b$. 
     If the particle can exactly pass through point $b$, what are the possible 
@@ -628,7 +714,7 @@ There is a metal ball ($R$, $Q$) in space. Calculate the force between the upper
 
 %-----------------------------------------------%
 \subsection{\bf Ampere's Force}
-\begin{frame}{\bf Exercise 12}
+\begin{frame}{\bf Exercise 11}
     $m_ab=5$g, $h=0.8$m, $L_ab=1$m, $C=400\mu$F, $\varepsilon=16$V, $B=0.5$T. 
     The switch $S$ is first at position 1 for a long enough time, 
     then suddenly moved to position 2. The metal bar will be 
@@ -657,7 +743,7 @@ There is a metal ball ($R$, $Q$) in space. Calculate the force between the upper
 \end{frame}
 
 
-\section{Appendix}
+\section*{Appendix}
 
 %----------------------------------------------------------------------------------------
 
