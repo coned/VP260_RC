@@ -119,6 +119,25 @@
             \curl{\va{F}} = \curl(-\grad{\varphi} + \curl{\va{A}}) = \curl(\curl{\va{A}})
         \end{equation}
     \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{beamerboxesrounded}[shadow=true]{\bf The Helmholtz's Theorem (not rigorous)}
+        \begin{equation}
+            \va{F}(\va{r}) = \grad(-\frac{1}{4\pi} \int \frac{\div{\va{F}(\va{r}')}}{r'}\dd{\tau}) + \curl(\frac{1}{4\pi} \int \frac{\curl{\va{F}(\va{r}')}}{r'}\dd{\tau})
+        \end{equation}
+    \end{beamerboxesrounded}
+
+    In electrostatics, $\div{\va{E}} = \frac{\rho}{\epsilon_0}$ and $\curl{\va{E}} = 0$,
+    \begin{equation}
+        \va{E}(\va{r}) = -\grad(\frac{1}{4\pi\epsilon_0} \int \frac{\rho(\va{r}')}{r'} \dd{\tau})
+    \end{equation}
+
+    In magnetostatics, $\div{\va{B}} = 0$ and $\curl{\va{B}} = \mu_0 \va{J}$,
+    \begin{equation}
+        \va{B}(\va{r}) = \curl(\frac{\mu_0}{4\pi} \int \frac{\va{J}(\va{r}')}{r'} \dd{\tau})
+    \end{equation}
+
 
 \end{frame}
 
@@ -154,64 +173,76 @@
         \end{equation}
     \end{beamerboxesrounded}    
     \vspace{.5em}
+    \begin{beamerboxesrounded}[shadow=true]{\bf Maxwell's Equations}
+        \begin{equation}
+            \left( \nabla^2 - \mu_0 \epsilon_0 \pdv[2]{}{t} \right) V + \pdv{}{t} \left( \div{\va{A}} + \mu_0 \epsilon_0 \pdv{V}{t} \right) = -\frac{\rho}{\epsilon_0}
+        \end{equation}
+        \begin{equation}
+            \left( \nabla^2 - \mu_0 \epsilon_0 \pdv[2]{}{t} \right) \va{A} + \nabla \left( \div{\va{A}} + \mu_0 \epsilon_0 \pdv{V}{t} \right) = -\mu_0 \va{J}
+        \end{equation}
+    \end{beamerboxesrounded}
+\end{frame}
+
+\begin{frame}{Gauge Transform}
     \begin{beamerboxesrounded}[shadow=true]{\bf Gauge Transform}
         \begin{equation}
             \mathbf{A}'=\mathbf{A}+\nabla \lambda
         \end{equation}     
         \begin{equation}
             V'=V-\frac{\partial \lambda}{\partial t}
-        \end{equation}   
-
-        Help to adjust $\div\va{A}$.
-        \begin{itemize}
-            \item Magnetostatics: choose $\div\va{A}=0$
-        \end{itemize}
+        \end{equation}
     \end{beamerboxesrounded}
+
+    \begin{itemize}
+        \item It will be helpful to solve the Maxwell's equations.
+    \end{itemize}
 \end{frame}
 
-\begin{frame}{Gauge Transform}
+\begin{frame}{Coulomb Gauge}
+    \begin{beamerboxesrounded}[shadow=true]{\bf Coulomb Gauge}
+        We will let
+        \begin{equation*}
+            \div\va{A} = 0.
+        \end{equation*}
+    \end{beamerboxesrounded}
+
+    Then, the Maxwell's equation becomes,
+    \begin{equation*}
+        \nabla^{2} V=-\frac{1}{\epsilon_{0}} \rho
+    \end{equation*}
+    \begin{equation*}
+        \nabla^{2} \mathbf{A}-\mu_{0} \epsilon_{0} \frac{\partial^{2} \mathbf{A}}{\partial t^{2}}=-\mu_{0} \mathbf{J}+\mu_{0} \epsilon_{0} \nabla\left(\frac{\partial V}{\partial t}\right)
+    \end{equation*}
+
+    \begin{itemize}
+        \item Usually we choose it in magnetostatics;
+        \item Easy to calculate scalar potential ($V$);
+        \item Hard to calculate vector potential ($\va{A}$).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lorenz Gauge}
     \begin{beamerboxesrounded}[shadow=true]{\bf Lorenz Gauge}
-        To eliminate the middle term in Eq(4):
+        We pick,
         \begin{equation*}
-            \div \va{A} = -\mu_0\epsilon_0\pdv{V}{t}
+            \div \va{A} = -\mu_0\epsilon_0\pdv{V}{t}.
         \end{equation*}
-        Eq(3,4) becomes (symmetric):
-        \begin{align*}
-            \nabla^{2} \mathbf{A}-\mu_{0} \epsilon_{0} \frac{\partial^{2} \mathbf{A}}{\partial t^{2}} &= -\mu_{0} \mathbf{J} \\ 
-            \nabla^{2} V-\mu_{0} \epsilon_{0} \frac{\partial^{2} V}{\partial t^{2}} &= -\frac{1}{\epsilon_{0}} \rho
-        \end{align*}
     \end{beamerboxesrounded}
+    The Maxwell's equations become,
+    \begin{align*}
+        \nabla^{2} \mathbf{A}-\mu_{0} \epsilon_{0} \frac{\partial^{2} \mathbf{A}}{\partial t^{2}} &= -\mu_{0} \mathbf{J} \\ 
+        \nabla^{2} V-\mu_{0} \epsilon_{0} \frac{\partial^{2} V}{\partial t^{2}} &= -\frac{1}{\epsilon_{0}} \rho
+    \end{align*}
+    \begin{itemize}
+        \item Four-dimensional inhomogeneous wave equation.
+    \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Gauge Transform}
-    \begin{beamerboxesrounded}[shadow=true]{\bf Coulomb Gauge (Magnetostatics)}
-        \begin{equation*}
-            \div\va{A} = 0
-        \end{equation*}
-        Eq(3) becomes (Poisson's equation):
-        \begin{equation*}
-            \nabla^{2} V=-\frac{1}{\epsilon_{0}} \rho
-        \end{equation*}
-        Eq(4) becomes:
-        \begin{equation*}
-            \nabla^{2} \mathbf{A}-\mu_{0} \epsilon_{0} \frac{\partial^{2} \mathbf{A}}{\partial t^{2}}=-\mu_{0} \mathbf{J}+\mu_{0} \epsilon_{0} \nabla\left(\frac{\partial V}{\partial t}\right)
-        \end{equation*}
 
-        \begin{itemize}
-            \item Easy to calculate scalar potential ($V$)
-            \item Hard to calculate vector potential ($\va{A}$)
-        \end{itemize}
-    \end{beamerboxesrounded}
-\end{frame}
 %There is a very peculiar thing about the scalar potential in the Coulomb gauge: it is determined by the distribution of charge right now. If I move an electron in my laboratory, the potential V on the moon immediately records this change. That sounds particularly odd in the light of special relativity, which allows no message to travel faster than c. The point is that V by itself is not a physically measurable quantity—all the man in the moon can measure is E, and that involves A as well (Eq. 10.3). Somehow it is built into the vector potential (in the Coulomb gauge) that whereas V instantaneously reflects all changes in ρ, the combination −∇V − (∂A/∂t) does not; E will change only after sufficient time has elapsed for the “news” to arrive.1
 
 \begin{frame}{Gauge Transform}
-    Recall that $\curl \va{B} = \mu_0 \va{J}$, then we can get 
-    \begin{equation*}
-        \nabla \times \mathbf{B}=\nabla \times(\nabla \times \mid \mathbf{A})=\nabla(\nabla \cdot \mathbf{A})-\nabla^{2} \mathbf{A} = -\nabla^2 \va{A} = \mu_{0} \mathbf{J}
-    \end{equation*}
-
     Similar to Poisson's equation ($-\nabla^2 V = \rho/\epsilon_0$), then the solution should be:
     \begin{equation*}
         \mathbf{A}(\mathbf{r})=\frac{\mu_{0}}{4 \pi} \int \frac{\mathbf{J}\left(\mathbf{r}^{\prime}\right)}{r} \dd \tau^{\prime}
