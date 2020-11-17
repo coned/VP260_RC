@@ -123,19 +123,19 @@
         \end{equation}
     \end{block}
 
-    
+
     \begin{table}[htbp]
         \centering
         %\caption{name}
         \begin{tabular}{ll}
-            $A$ & amplitude \\ 
-            $k$ & wave number \\
-            $k(x-vt)+\varphi$ & phase \\
-            $\varphi$ & phase constant ($0 \leq \varphi < 2 \pi$)\\
-            $\lambda = \frac{k}{2\pi}$ & wave length \\
-            $T = \frac{2\pi}{kv}$ & period\\
-            $\nu = \frac{1}{T}$ & frequency\\
-            $\omega = 2\pi \nu$ & angular frequency\\
+            $A$                        & amplitude                                 \\
+            $k$                        & wave number                               \\
+            $k(x-vt)+\varphi$          & phase                                     \\
+            $\varphi$                  & phase constant ($0 \leq \varphi < 2 \pi$) \\
+            $\lambda = \frac{k}{2\pi}$ & wave length                               \\
+            $T = \frac{2\pi}{kv}$      & period                                    \\
+            $\nu = \frac{1}{T}$        & frequency                                 \\
+            $\omega = 2\pi \nu$        & angular frequency                         \\
         \end{tabular}
     \end{table}
 
@@ -244,7 +244,7 @@
     \end{equation}
 
     We then define the energy flux (energy per unit area, per unit time) as Poynting vector.
-    
+
     \begin{block}{Poynting Vector}
         \begin{equation}
             \va{S} = \frac{1}{\mu_0} (\va{E} \times \va{B})
@@ -252,6 +252,45 @@
     \end{block}
 
     For the sinusoidal waves, $\va{S} = cu \vu{z}$ where $u$ is energy density.
+\end{frame}
+
+\begin{frame}{Reflection and Refraction}
+    \begin{columns}
+        \begin{column}{.3\linewidth}
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=\textwidth]{Images/re.jpg}
+            \end{figure}
+        \end{column}
+        \begin{column}{.7\linewidth}
+            \begin{block}{Law of reflection}
+                \begin{equation}
+                    \theta_I = \theta_R
+                \end{equation}
+            \end{block}
+
+            \begin{block}{Law of refraction (Snell's law)}
+                \begin{equation}
+                    \frac{\sin \theta_T}{\sin \theta_I} = \frac{n_1}{n_2}
+                \end{equation}
+            \end{block}
+            \begin{itemize}
+                \item $n_i = v_i / c$ is called refractive index.
+                \item When $\theta_I > \theta_{cr}$, where $\sin \theta_{cr} = n_2 / n_1$, there is a total internal reflection.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Huygens' Principle}
+    \begin{block}{Huygens' principle}
+        Every point of the wavefront may be considered as a source of secondary wavelets that propagate out in all directions with speed equal to speed of propagation of the wave.
+    \end{block}
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[height=0.5\textheight]{Images/huygens.jpg}
+    \end{figure}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
@@ -262,21 +301,24 @@
 
 
 \begin{frame}{Exercise 1}
-Calculate the intensity of the standing wave represented by,
-\begin{equation}
-    \va{E}(z, t) = -2E_0 \sin(kz)\sin(\omega t) \vu{x}
-\end{equation}
-\begin{equation}
-    \va{B}(z, t) = -2B_0 \cos(kz)\cos(\omega t) \vu{y}
-\end{equation}
+    Calculate the intensity of the standing wave represented by,
+    \begin{equation}
+        \va{E}(z, t) = -2E_0 \sin(kz)\sin(\omega t) \vu{x}
+    \end{equation}
+    \begin{equation}
+        \va{B}(z, t) = -2B_0 \cos(kz)\cos(\omega t) \vu{y}
+    \end{equation}
 
 \end{frame}
 
 
 \begin{frame}{Exercise 2}
-Check that $\tilde{\vb{E}}(\va{r}) = \tilde{\vb{E}}_0 e^{i(\va{k} \vdot \va{r} - \omega t)}$ and $\tilde{\vb{B}}(\va{r}) = \tilde{\vb{B}}_0 e^{i(\va{k} \vdot \va{r} - \omega t)}$ where $\abs{\tilde{B}_0} = \abs{\tilde{E}_0} / c$ satisfy the e-m wave equations.
+    Check that $\tilde{\vb{E}}(\va{r}) = \tilde{\vb{E}}_0 e^{i(\va{k} \vdot \va{r} - \omega t)}$ and $\tilde{\vb{B}}(\va{r}) = \tilde{\vb{B}}_0 e^{i(\va{k} \vdot \va{r} - \omega t)}$ where $\abs{\tilde{B}_0} = \abs{\tilde{E}_0} / c$ satisfy the e-m wave equations.
 \end{frame}
 
+\begin{frame}{Exercise 3}
+    Prove the law of reflection and refraction by Huygens' principle.
+\end{frame}
 
 
 %	 CLOSING/SUPPLEMENTARY SLIDES
