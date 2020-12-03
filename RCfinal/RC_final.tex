@@ -384,6 +384,51 @@
     For the sinusoidal waves, $\va{S} = cu \vu{z}$ where $u = \epsilon_0 E^2$ is energy density.
 \end{frame}
 
+\begin{frame}{Standing e-m Wave}
+    \begin{beamerboxesrounded}[shadow=true]{Standing Wave Formula}
+        Reflected by a perfect conductor:
+        \begin{equation}
+            \va{E}(z, t) = -2E_0 \sin(kz) \sin(\omega t) \vu{x}
+        \end{equation}
+        \begin{equation}
+            \va{B}(z, t) = -2B_0 \cos(kz) \cos(\omega t) \vu{y}
+        \end{equation}
+    \end{beamerboxesrounded}
+    \vspace{.5em}
+    \begin{itemize}
+        \item Reflection: direction of $\va{S}$, $\va{E}$ changes; direction of $\va{B}$ does not change.
+        \item Node of electric field: $z_n = n \lambda/2$
+        \item Node of magnetic field: $z_n = (2n+1)\lambda/4$
+    \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Momentum Transport}
+    Momentum density: 
+    \begin{equation}
+        \textbf{$\Pi$} = \frac{1}{c^2}\va{S}
+    \end{equation}
+
+    Average momentum density ($\overline{\text{power}}$/area):
+    \begin{equation}
+        \begin{split}
+            \langle u\rangle&=\frac{1}{2} \varepsilon_{0} E_{0}^{2} \\
+            \langle \va{s} \rangle &= \frac{1}{2}c\epsilon_0E^2_0 \vu{n} \\ 
+            \langle \textbf{$\Pi$} \rangle&= \frac{1}{2c}\epsilon_0 E^2_0 \vu{n}
+        \end{split}
+    \end{equation}
+
+    \begin{beamerboxesrounded}[shadow=true]{Intensity}
+        \begin{equation}
+            \text{I} = \abs{\langle \va{s} \rangle} = \frac{1}{2} c \epsilon_0 E^2_0
+        \end{equation}        
+    \end{beamerboxesrounded}
+    \vspace{.5em}
+
+\end{frame}
+
+
 \subsection{Optics}
 
 \begin{frame}{Reflection and Refraction}
