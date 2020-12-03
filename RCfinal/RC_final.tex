@@ -250,7 +250,7 @@
             \toprule
             RC                   & $i(t)=\epsilon/R(1-exp(-t/\tau))$                                                                 & $\tau=RC$               \\ \addlinespace[1em]
             RL                   & $i(t)=\epsilon/R(1-exp(-t/\tau))$                                                                 & $\tau=L/R$              \\ \addlinespace[1em]
-            LC                   & $q(t) = A\sin(\omega_0 t) + B\cos(\omega_0 t)$                                                    & $\omega_0 = 1\sqrt{LC}$ \\ \addlinespace[1em]
+            LC                   & $q(t) = A\sin(\omega_0 t) + B\cos(\omega_0 t)$                                                    & $\omega_0 = 1/\sqrt{LC}$ \\ \addlinespace[1em]
             \multirow{3}{*}{RLC} & \multirow{3}{*}{$\frac{d^{2} I(t)}{d t^{2}}+\frac{R}{L} \frac{d I(t)}{d t}+\frac{1}{L C} I(t)=0$} & Underdamped             \\
                                  &                                                                                                   & Critical damping        \\
                                  &                                                                                                   & Overdamped              \\
@@ -293,10 +293,10 @@
         \begin{equation}
             \abs{Z} = \sqrt{R^2+(\omega L - \frac{1}{\omega C})^2 }
         \end{equation}
-        Resonance happens when $\omega_0 = \frac{1}{LC}$
+        Resonance happens when $\omega_0 = \frac{1}{\sqrt{LC}}$
     \end{block}
 
-    \begin{block}{ Power}
+    \begin{block}{Power}
         \begin{equation}
             \overline{P} = V_{rms} I_{rms}
         \end{equation}
@@ -384,47 +384,48 @@
     For the sinusoidal waves, $\va{S} = cu \vu{z}$ where $u = \epsilon_0 E^2$ is energy density.
 \end{frame}
 
-\begin{frame}{Standing e-m Wave}
-    \begin{beamerboxesrounded}[shadow=true]{Standing Wave Formula}
-        Reflected by a perfect conductor:
-        \begin{equation}
-            \va{E}(z, t) = -2E_0 \sin(kz) \sin(\omega t) \vu{x}
-        \end{equation}
-        \begin{equation}
-            \va{B}(z, t) = -2B_0 \cos(kz) \cos(\omega t) \vu{y}
-        \end{equation}
-    \end{beamerboxesrounded}
-    \vspace{.5em}
-    \begin{itemize}
-        \item Reflection: direction of $\va{S}$, $\va{E}$ changes; direction of $\va{B}$ does not change.
-        \item Node of electric field: $z_n = n \lambda/2$
-        \item Node of magnetic field: $z_n = (2n+1)\lambda/4$
-    \end{itemize}
-\end{frame}
+% \begin{frame}{Standing e-m Wave}
+%     \begin{beamerboxesrounded}[shadow=true]{Standing Wave Formula}
+%         Reflected by a perfect conductor:
+%         \begin{equation}
+%             \va{E}(z, t) = -2E_0 \sin(kz) \sin(\omega t) \vu{x}
+%         \end{equation}
+%         \begin{equation}
+%             \va{B}(z, t) = -2B_0 \cos(kz) \cos(\omega t) \vu{y}
+%         \end{equation}
+%     \end{beamerboxesrounded}
+%     \vspace{.5em}
+%     \begin{itemize}
+%         \item Reflection: direction of $\va{S}$, $\va{E}$ changes; direction of $\va{B}$ does not change.
+%         \item Node of electric field: $z_n = n \lambda/2$
+%         \item Node of magnetic field: $z_n = (2n+1)\lambda/4$
+%     \end{itemize}
+% \end{frame}
 
 
 
 \begin{frame}{Momentum Transport}
-    Momentum density: 
-    \begin{equation}
-        \textbf{$\Pi$} = \frac{1}{c^2}\va{S}
-    \end{equation}
 
-    Average momentum density ($\overline{\text{power}}$/area):
+    \begin{block}{Momentum density}
+        \begin{equation}
+        \va{\Pi} = \frac{1}{c^2}\va{S}
+    \end{equation}
+    \end{block}
+
+    Average over a cycle:
     \begin{equation}
         \begin{split}
             \langle u\rangle&=\frac{1}{2} \varepsilon_{0} E_{0}^{2} \\
             \langle \va{s} \rangle &= \frac{1}{2}c\epsilon_0E^2_0 \vu{n} \\ 
-            \langle \textbf{$\Pi$} \rangle&= \frac{1}{2c}\epsilon_0 E^2_0 \vu{n}
+            \langle \va{\Pi} \rangle&= \frac{1}{2c}\epsilon_0 E^2_0 \vu{n}
         \end{split}
     \end{equation}
 
-    \begin{beamerboxesrounded}[shadow=true]{Intensity}
+    \begin{block}{Intensity}
         \begin{equation}
-            \text{I} = \abs{\langle \va{s} \rangle} = \frac{1}{2} c \epsilon_0 E^2_0
+            \text{I} = \abs{\langle \va{S} \rangle} = \frac{1}{2} c \epsilon_0 E^2_0
         \end{equation}        
-    \end{beamerboxesrounded}
-    \vspace{.5em}
+    \end{block}
 
 \end{frame}
 
@@ -506,46 +507,12 @@
 \begin{frame}{Diffraction}
     \begin{figure}[htbp]
         \centering
-        \includegraphics[scale=0.3]{images/diffraction.png}
-    \end{figure} 
+        \includegraphics[width=0.5\textwidth]{images/df_ref.png}%
+        \includegraphics[width=0.5\textwidth]{images/df_ref_2.png}
+    \end{figure} %
     
-    Point wave on P:
-    \begin{equation}
-        \begin{split}
-            \tilde{E}(r) &= \frac{E_A}{R}\exp(i(kr-\omega t)) \\
-            r(y) &= R - y\sin\theta
-        \end{split}
-    \end{equation}
-
-    Total wave:
-    \begin{equation}
-        \begin{split}
-            \tilde{E}_P &= \frac{E_A}{R} \int_{-d/2}^{d/2} \exp(i(kR - \omega t)) \dd y \\ 
-            &= \frac{E_A D}{R} \exp(i(kR-\omega t)) \frac{\sin\beta }{\beta} ,\ \beta = \frac{kD\sin\theta}{2}
-        \end{split}
-    \end{equation}
-
 \end{frame}
 
-\begin{frame}{Diffraction}
-    Therefore, for single slit, the intensity is
-    \begin{equation}
-        \frac{I}{I_{max}} = (\frac{\sin\beta}{\beta})^2
-    \end{equation}
-    (half wave zone method)
-
-    Other examples:
-    \begin{itemize}
-        \item Rectangular aperture: 
-        \begin{equation}
-            \frac{I}{I_{max}} = (\frac{\sin\alpha}{\alpha})^2(\frac{\sin\beta}{\beta})^2
-        \end{equation}
-        \item Circular aperture (first Bessel function): 
-        \begin{equation}
-            \frac{I(\theta)}{I_{max}} = (\frac{2J_1(ka\sin\theta)}{ka\sin\theta})^2
-        \end{equation}
-    \end{itemize}
-\end{frame}
 
 %----------------------------------------------------------------------------------------
 %	 Section 2
@@ -556,12 +523,19 @@
 \subsection{Ampere's Law}
 
 \begin{frame}{Problem 1}
-    There is a constant current density \textit{\textbf{j}} flowing between two cylindrical surfaces. Please find out the distribution of magnetic field inside the small cylindrical surface.
-    \vfill
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.30\textwidth]{images/008.png}
-    \end{figure}
+    
+    \begin{columns}
+        \begin{column}{0.25\textwidth}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{images/problem1.png}
+            \end{figure}
+        \end{column}
+        \begin{column}{.75\textwidth}
+            An infinite long conductor thin-walled tube with radius $R$ (ignored thickness) is cut along the axis to cut an infinite long slit with width $h$ ($h\ll R$), and then the current flows uniformly along the axis. The linear density of its surface current density is $i$. What is the magnetic field along the tube axis?
+        \end{column}
+    \end{columns}
+    
 \end{frame}
 
 \begin{frame}{Hw7.6}
@@ -636,6 +610,9 @@ The current travels in the same sense around each coil. One coil has self-induct
     \end{figure}
 \end{frame}
 
+\begin{frame}{Hw9.10}
+    Be familiar with all the conclusions proved in this problem.
+\end{frame}
 
 \subsection{Electromagnetic Waves}
 
